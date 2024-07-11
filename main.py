@@ -100,7 +100,8 @@ def insert_data_from_user():
             conn.close()
             print("PostgreSQL connection is closed")
             
-def get_student_by_number(student_number):
+def get_student_by_number():
+    student_number = input("Enter student number: ")
     conn = None
     try:
         conn = connect_db()
@@ -267,6 +268,30 @@ def delete_data():
             conn.close()
             print("PostgreSQL connection is closed")
 
+while(True):
+    print("\nWelcome to student database management system")
+    print("1. Create table")
+    print("2. Insert Data")
+    print("3. Read Data")
+    print("4. Update Data")
+    print("5. Delete Data")
+    print("6. Exit")
+    choice=input("Enter your choice (1-6): ")
+    if choice =='1':
+        create_student_table()
+    elif choice=='2':
+        insert_data_from_user()
+    elif choice=='3':
+        get_student_by_number()
+    elif choice=='4':
+        update_data()
+    elif choice=='5':
+        delete_data()
+    elif choice=='6':
+        exit()
+    else:
+        print("Please choose a valid number")
+        
     
     
 # student_number = "4"
